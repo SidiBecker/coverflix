@@ -27,3 +27,10 @@ a {
 .App {
   background-color: #141414;
 }
+
+#root {
+  min-height: calc(100vh -  var(--bodyPaddingTop));
+  background-color: red;
+  display: flex;
+  flex-direction: column;
+}
