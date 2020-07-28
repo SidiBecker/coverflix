@@ -4,7 +4,7 @@
 }
 
 :root {
-  --primary: #2A7AE4;
+  --primary: #32CD32;
   --black: #000000;
   --blackLighter: #9E9E9E;
   --grayLight: #F5F5F5;
@@ -22,4 +22,8 @@ body {
 
 a {
   color: inherit;
+}
+
+.App {
+  background-color: #141414;
 }
