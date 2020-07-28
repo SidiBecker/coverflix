@@ -54,7 +54,7 @@ const Slider = ({ children }) => (
           settings: {
             slidesToShow: 4,
             slidesToScroll: 4,
-            infinite: true,
+            infinite: false,
             dots: true
           }
         },
@@ -63,7 +63,7 @@ const Slider = ({ children }) => (
           settings: {
             slidesToShow: 3,
             slidesToScroll: 3,
-            infinite: true,
+            infinite: false,
             dots: true
           }
         },
@@ -72,14 +72,17 @@ const Slider = ({ children }) => (
           settings: {
             slidesToShow: 2,
             slidesToScroll: 2,
-            initialSlide: 2
+            infinite: false,
+            dots: true
           }
         },
         {
           breakpoint: 650,
           settings: {
             slidesToShow: 1,
-            slidesToScroll: 1
+            slidesToScroll: 1,
+            infinite: false,
+            dots: true
           }
         }
       ]
