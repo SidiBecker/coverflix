@@ -11,7 +11,7 @@ function Menu() {
             <a href="/">
                 <img className="Logo" src={Logo} alt="Logo da CoverFlix" />
             </a>
-            <Button className="ButtonLink" href="/teste">Novo vídeo</Button>
+            {/* <Button className="ButtonLink" href="/">Novo vídeo</Button> */}
         </nav>
     )
 }
