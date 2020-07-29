@@ -1,0 +1,11 @@
+.formfield {
+    margin: 10px 0;
+}
+
+.formfield input, .formfield textarea {
+    margin-left: 10px;
+}
+
+.formfield textarea {
+    vertical-align: top;
+}
