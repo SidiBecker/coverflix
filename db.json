@@ -1,0 +1,16 @@
+{
+  "categorias": [
+    {
+      "id": 1,
+      "nome": "Fingerstyle",
+      "descricao": "Descrição do fingerstyle",
+      "cor": "#00C86F"
+    },
+    {
+      "id": 2,
+      "nome": "Drum Cover",
+      "descricao": "Descrição do drumcover",
+      "cor": "#ff00aa"
+    }
+  ]
+}
