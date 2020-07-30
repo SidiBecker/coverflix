@@ -11,6 +11,12 @@
       "nome": "Drum Cover",
       "descricao": "Descrição do drumcover",
       "cor": "#ff00aa"
+    },
+    {
+      "id": 3,
+      "nome": "Queen",
+      "descricao": "Descrição do Queen",
+      "cor": "#ff00aa"
     }
   ]
 }

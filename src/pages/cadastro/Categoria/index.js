@@ -36,7 +36,7 @@ function CadastroCategoria() {
 
   useEffect(() => {
     // Método executado após renderizar a tela
-    fetch('http://localhost:8080/categorias').then(async (res) => {
+    fetch('https://coverflix.herokuapp.com/categorias').then(async (res) => {
       const data = await res.json();
       setListaCategorias(data);
     });
@@ -67,10 +67,8 @@ function CadastroCategoria() {
 
           <ul>
             {listaCategorias.map((element, index) => (
-              <li style={{ backgroundColor: element.cor }} key={String(`categoria_${index}`)}>
+              <li key={String(`categoria_${index}`)}>
                 <h2>{element.nome}</h2>
-                <p>{element.descricao}</p>
-
               </li>
             ))}
           </ul>
