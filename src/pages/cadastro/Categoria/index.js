@@ -36,7 +36,10 @@ function CadastroCategoria() {
 
   useEffect(() => {
     // Método executado após renderizar a tela
-    fetch('https://coverflix.herokuapp.com/categorias').then(async (res) => {
+
+    const local = window.location.hostname === 'localhost';
+    const URL = local ? 'http://localhost:3000/categorias' : 'https://coverflix.herokuapp.com/categorias';
+    fetch(URL).then(async (res) => {
       const data = await res.json();
       setListaCategorias(data);
     });
