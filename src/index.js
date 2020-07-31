@@ -1,19 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Home from './pages/Home/';
-
-
 import {
   BrowserRouter as Router,
   Switch,
-  Route
-} from "react-router-dom";
+  Route,
+} from 'react-router-dom';
+import Home from './pages/Home';
+
 import CadastroVideo from './pages/cadastro/Video';
 import CadastroCategoria from './pages/cadastro/Categoria';
 import Pagina404 from './pages/404';
 import SimpleSlider from './components/Slider';
-
 
 ReactDOM.render(
 
@@ -26,7 +24,7 @@ ReactDOM.render(
       <Route path="/cadastro/categoria" component={CadastroCategoria} exact />
       <Route component={Pagina404} />
     </Switch>
-  </Router>
+  </Router>,
 
-  , document.getElementById('root')
+  document.getElementById('root'),
 );

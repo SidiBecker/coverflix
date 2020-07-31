@@ -1,7 +1,8 @@
-import React from 'react'
-import Footer from '../Footer'
-import Menu from '../Menu'
+import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
+import Footer from '../Footer';
+import Menu from '../Menu';
 
 const Main = styled.main`
     background-color: var(--black);
@@ -13,15 +14,22 @@ const Main = styled.main`
 `;
 
 function PageDefault({ children }) {
-    return (
-        <>
-            <Menu />
-            <Main>
-                {children}
-            </Main>
-            <Footer />
-        </>
-    )
+  return (
+    <>
+      <Menu />
+      <Main>
+        {children}
+      </Main>
+      <Footer />
+    </>
+  );
 }
 
-export default PageDefault
+PageDefault.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+  ]).isRequired,
+};
+
+export default PageDefault;

@@ -2,6 +2,7 @@
 import React from 'react';
 import SlickSlider from 'react-slick';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 const Container = styled.ul`
   padding: 0;
@@ -38,59 +39,70 @@ export const SliderItem = styled.li`
   }
 `;
 
+function Slider({ children }) {
+  return (
+    <Container>
+      <SlickSlider {...{
+        dots: true,
+        infinite: false,
+        speed: 300,
+        slidesToShow: 5,
+        slidesToScroll: 5,
+        initialSlide: 0,
+        responsive: [
+          {
+            breakpoint: 1900,
+            settings: {
+              slidesToShow: 4,
+              slidesToScroll: 4,
+              infinite: false,
+              dots: true,
+            },
+          },
+          {
+            breakpoint: 1360,
+            settings: {
+              slidesToShow: 3,
+              slidesToScroll: 3,
+              infinite: false,
+              dots: true,
+            },
+          },
+          {
+            breakpoint: 950,
+            settings: {
+              slidesToShow: 2,
+              slidesToScroll: 2,
+              infinite: false,
 
-const Slider = ({ children }) => (
-  <Container>
-    <SlickSlider {...{
-      dots: true,
-      infinite: false,
-      speed: 300,
-      slidesToShow: 5,
-      slidesToScroll: 5,
-      initialSlide: 0,
-      responsive: [
-        {
-          breakpoint: 1900,
-          settings: {
-            slidesToShow: 4,
-            slidesToScroll: 4,
-            infinite: false,
-            dots: true
-          }
-        },
-        {
-          breakpoint: 1360,
-          settings: {
-            slidesToShow: 3,
-            slidesToScroll: 3,
-            infinite: false,
-            dots: true
-          }
-        },
-        {
-          breakpoint: 950,
-          settings: {
-            slidesToShow: 2,
-            slidesToScroll: 2,
-            infinite: false,
-            dots: true
-          }
-        },
-        {
-          breakpoint: 650,
-          settings: {
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            infinite: false,
-            dots: true
-          }
-        }
-      ]
-    }}
-    >
-      {children}
-    </SlickSlider>
-  </Container>
-);
+              dots: true,
+            },
+          },
+          {
+            breakpoint: 650,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1,
+              infinite: false,
+              centerMode: true,
+              centerPadding: '25px',
+              dots: true,
+            },
+          },
+        ],
+      }}
+      >
+        {children}
+      </SlickSlider>
+    </Container>
+  );
+}
 
-export default Slider; 
+Slider.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+  ]).isRequired,
+};
+
+export default Slider;
