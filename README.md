@@ -8,6 +8,10 @@
   <a href="#-como-contribuir">Como contribuir</a>
 </p>
 
+<p align="center">
+  <img alt="Demonstração" src="./screenshots/1.gif" width="100%">
+</p>
+
 ###  💻 Projeto
 
 A [Coverflix](https://coverflix.vercel.app) é uma plataforma baseada na Netflix para exibição de covers de vários artistas e estilos musicais.
@@ -28,9 +32,6 @@ As seguintes features estão/vão estar inclusas no projeto:
 - [ ] Exibição interna do vídeo
 - [ ] Ferramenta de busca
 
-<p align="center">
-  <img alt="Demonstração" src="./screenshots/1.gif" width="100%">
-</p>
 
 ## 🤔 Como contribuir
 
