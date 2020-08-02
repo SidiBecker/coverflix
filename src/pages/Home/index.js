@@ -1,33 +1,49 @@
-import React from 'react';
+/* eslint-disable max-len */
+import React, { useEffect, useState } from 'react';
 import Menu from '../../components/Menu';
-import dadosIniciais from '../../data/dados_iniciais.json';
 import BannerMain from '../../components/BannerMain';
 import Carousel from '../../components/Carousel';
 import Footer from '../../components/Footer';
+import CategoriasService from '../../services/categorias';
 
 function Home() {
+  const [dadosIniciais, setDadosIniciais] = useState([]);
+
+  useEffect(() => {
+    CategoriasService.getAllWithVideos()
+      .then((categoriasVideos) => {
+        setDadosIniciais(categoriasVideos);
+      })
+      .catch((err) => {
+        alert(err);
+      });
+  }, []);
+
   return (
     <div className="App">
       <Menu />
 
-      <BannerMain
-        videoTitle={dadosIniciais.categorias[0].videos[0].titulo}
-        url={dadosIniciais.categorias[0].videos[0].url}
-        videoDescription="Fingerstyle é uma técnica de tocar violão/guitarra/baixo, em que se toca apenas com os dedos, sem o uso da palheta. Ele é tocado predominantemente em guitarra acústica com cordas em aço e é caracterizado esteticamente por uma orientação em torno dos blues. Porém, nota-se influências de outras fontes como o jazz, ragtime, country, clássica, celta e pop."
-      />
+      {dadosIniciais.length === 0 && (
+        <div style={{ color: '#FFF' }}>Loading...</div>
+      )}
 
-      <Carousel
-        ignoreFirstVideo
-        category={dadosIniciais.categorias[0]}
-      />
+      {dadosIniciais.length > 0 && (
+        <>
+          <BannerMain
+            videoTitle={dadosIniciais[0].videos[0].titulo}
+            url={dadosIniciais[0].videos[0].url}
+            videoDescription={dadosIniciais[0].descricao}
+          />
 
-      <Carousel
-        category={dadosIniciais.categorias[1]}
-      />
-
-      <Carousel
-        category={dadosIniciais.categorias[2]}
-      />
+          {dadosIniciais.filter((categoria) => Boolean(categoria.videos.length)).map((categoria, index) => (
+            <Carousel
+              key={categoria.id}
+              ignoreFirstVideo={index === 0}
+              category={categoria}
+            />
+          ))}
+        </>
+      )}
 
       <Footer />
 

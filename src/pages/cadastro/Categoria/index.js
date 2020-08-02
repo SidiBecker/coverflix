@@ -2,46 +2,41 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import PageDefault from '../../../components/PageDefault';
 import FormField from '../../../components/FormField';
+import useForm from '../../../hooks/useForm';
+import CategoriasService from '../../../services/categorias';
 
 function CadastroCategoria() {
   const valoresIniciais = {
-    nome: '',
+    titulo: '',
     descricao: '',
     cor: '#000',
   };
 
+  const { onChange, values, clearForm } = useForm(valoresIniciais);
+
   const [listaCategorias, setListaCategorias] = useState([]);
-  const [categoria, setCategoria] = useState(valoresIniciais);
-
-  function setValue(key, value) {
-    setCategoria({
-      ...categoria,
-      [key]: value,
-    });
-  }
-
-  function onChange(ev) {
-    const { target } = ev;
-    setValue(
-      target.getAttribute('name'),
-      target.value,
-    );
-  }
 
   function cadastrarCategoria(e) {
     e.preventDefault();
-    setListaCategorias([...listaCategorias, categoria]);
-    setCategoria(valoresIniciais);
+    CategoriasService.create({
+      titulo: values.titulo,
+      url: values.url,
+      cor: values.cor,
+    })
+      .then(() => {
+        clearForm();
+        setListaCategorias([...listaCategorias, values]);
+        clearForm();
+      })
+      .catch(() => {
+        alert('Houve um erro ao salvar os dados.');
+      });
   }
 
   useEffect(() => {
     // Método executado após renderizar a tela
-
-    const local = window.location.hostname === 'localhost';
-    const URL = local ? 'http://localhost:8080/categorias' : 'https://coverflix.herokuapp.com/categorias';
-    fetch(URL).then(async (res) => {
-      const data = await res.json();
-      setListaCategorias(data);
+    CategoriasService.getAll().then((listaSalva) => {
+      setListaCategorias(listaSalva);
     });
   }, []);
 
@@ -52,13 +47,13 @@ function CadastroCategoria() {
           <h1>Cadastro de Categoria: </h1>
           <form onSubmit={cadastrarCategoria}>
 
-            <FormField type="text" label="Nome" value={categoria.nome} name="nome" onChange={onChange} />
+            <FormField type="text" label="Título" value={values.titulo} name="titulo" onChange={onChange} />
 
-            <FormField tag="textarea" label="Descrição" value={categoria.descricao} name="descricao" onChange={onChange} />
+            <FormField tag="textarea" label="Descrição" value={values.descricao} name="descricao" onChange={onChange} />
 
-            <FormField type="color" label="Cor" value={categoria.cor} name="cor" onChange={onChange} />
+            <FormField type="color" label="Cor" value={values.cor} name="cor" onChange={onChange} />
 
-            <input disabled={!(categoria.nome && categoria.descricao)} type="submit" value="Enviar" />
+            <input disabled={!(values.titulo && values.descricao)} type="submit" value="Enviar" />
 
           </form>
 
@@ -71,7 +66,7 @@ function CadastroCategoria() {
           <ul>
             {listaCategorias.map((element, index) => (
               <li key={String(`categoria_${index}`)}>
-                <h2>{element.nome}</h2>
+                <h2>{element.titulo}</h2>
               </li>
             ))}
           </ul>

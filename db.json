@@ -2,21 +2,154 @@
   "categorias": [
     {
       "id": 1,
-      "nome": "Fingerstyle",
-      "descricao": "Descrição do fingerstyle",
-      "cor": "#00C86F"
+      "titulo": "Fingerstyle",
+      "descricao": "Fingerstyle é uma técnica de tocar violão/guitarra/baixo, em que se toca apenas com os dedos, sem o uso da palheta. Ele é tocado predominantemente em guitarra acústica com cordas em aço e é caracterizado esteticamente por uma orientação em torno dos blues. Porém, nota-se influências de outras fontes como o jazz, ragtime, country, clássica, celta e pop.",
+      "cor": "#00C86F",
+      "link_extra": {
+        "text": "Veja mais",
+        "url": "https://www.youtube.com/results?search_query=fingerstyle+cover"
+      }
     },
     {
       "id": 2,
-      "nome": "Drum Cover",
+      "titulo": "Drum Cover",
       "descricao": "Descrição do drumcover",
       "cor": "#ff00aa"
     },
     {
       "id": 3,
-      "nome": "Queen",
+      "titulo": "Queen",
       "descricao": "Descrição do Queen",
       "cor": "#ff00aa"
+    },
+    {
+      "titulo": "Bass Cover",
+      "cor": "#ff7b00",
+      "id": 4
+    },
+    {
+      "titulo": "Games",
+      "cor": "#00ffee",
+      "id": 5
+    }
+  ],
+  "videos": [
+    {
+      "id": 1,
+      "categoriaId": 1,
+      "titulo": "A-ha - Take On Me (Alexandr Misko)",
+      "url": "https://www.youtube.com/watch?v=EMxiuq_tMq0"
+    },
+    {
+      "id": 1,
+      "categoriaId": 1,
+      "titulo": "In The End - Linkin Park - (Ambient Version) - Harp Guitar Cover - Jamie Dupuis",
+      "url": "https://www.youtube.com/watch?v=zyNM20QARgU"
+    },
+    {
+      "id": 7,
+      "categoriaId": 1,
+      "titulo": "Queen Medley - Sungha Jung",
+      "url": "https://www.youtube.com/watch?v=B9f9uQ0OMw0"
+    },
+    {
+      "id": 8,
+      "categoriaId": 1,
+      "titulo": "Believer - Imagine Dragons",
+      "url": "https://www.youtube.com/watch?v=hXQxSi34GWY"
+    },
+    {
+      "id": 9,
+      "categoriaId": 1,
+      "titulo": "Nothing Else Matters by Metallica - Danish Guitar Performance - Soren Madsen",
+      "url": "https://www.youtube.com/watch?v=WlGiOiRQNhI"
+    },
+    {
+      "id": 10,
+      "categoriaId": 1,
+      "titulo": "Toto - Africa - Fingerstyle Guitar Cover",
+      "url": "https://www.youtube.com/watch?v=EAAnlSEVk94"
+    },
+    {
+      "id": 2,
+      "categoriaId": 2,
+      "titulo": "Maroon 5 - Animals | Matt McGuire",
+      "url": "https://www.youtube.com/watch?v=9HSU6iEJYqM"
+    },
+    {
+      "id": 3
+    },
+    {
+      "titulo": "teste",
+      "url": "https://www.youtube.com/watch?v=ZaYvwn9nBD4",
+      "categoriaId": "1",
+      "id": 4
+    },
+    {
+      "titulo": "teste",
+      "url": "https://www.youtube.com/watch?v=CZeulkp1ClA",
+      "categoriaId": "1",
+      "id": 5
+    },
+    {
+      "titulo": "teste",
+      "url": "https://www.youtube.com/watch?v=CZeulkp1ClA",
+      "categoriaId": 1,
+      "id": 6
+    },
+    {
+      "titulo": "Can't Stop - Red Hot Chili Peppers",
+      "url": "https://www.youtube.com/watch?v=QiPOzkp-IOs",
+      "categoriaId": 2,
+      "id": 11
+    },
+    {
+      "titulo": "Numb - Linkin Park",
+      "url": "https://www.youtube.com/watch?v=3z7yS5h72ns",
+      "categoriaId": 2,
+      "id": 12
+    },
+    {
+      "titulo": "Believer - Imagine Dragons",
+      "url": "https://www.youtube.com/watch?v=MR35Bf_LxTA",
+      "categoriaId": 2,
+      "id": 13
+    },
+    {
+      "titulo": "Michael Jackson's Drummer Jonathan Moffett Performs Smooth Criminal",
+      "url": "https://www.youtube.com/watch?v=bRM2Gn9nU7Q",
+      "categoriaId": 2,
+      "id": 14
+    },
+    {
+      "titulo": "Dua Lipa - Break My Heart",
+      "url": "https://www.youtube.com/watch?v=XdBR-SrP6uU",
+      "categoriaId": 4,
+      "id": 15
+    },
+    {
+      "titulo": "Michael Jackson - Billie Jean",
+      "url": "https://www.youtube.com/watch?v=Yrm5RBG6S7c",
+      "categoriaId": 4,
+      "id": 16
+    },
+    {
+      "titulo": "Mart - Mark Ronson - Uptown Funk ft. Bruno Mars (Bass Cover)",
+      "url": "https://www.youtube.com/watch?v=CT3rJHs82A8",
+      "categoriaId": 4,
+      "id": 17
+    },
+    {
+      "titulo": "GTA San Andreas Theme Song Cover",
+      "url": "https://www.youtube.com/watch?v=B5zOBty9JKM",
+      "categoriaId": 5,
+      "id": 18
+    },
+    {
+      "titulo": "GTA IV Theme - The Soviet Connection Cover",
+      "url": "https://www.youtube.com/watch?v=kl3fERNf6BU",
+      "categoriaId": 5,
+      "id": 19
     }
   ]
 }
