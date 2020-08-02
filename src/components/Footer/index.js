@@ -10,17 +10,16 @@ function Footer() {
         <img height="30" src={Logo} alt="Logo" />
       </Link>
       <p>
-        Orgulhosamente criado durante a
-        {' '}
-        <a href="https://www.alura.com.br/">
-          Imersão React da Alura.
-        </a>
-        <br />
-        <br />
-        Desenvolvido por
+        Orgulhosamente desenvolvido por
         {' '}
         <a href="https://github.com/SidiBecker/coverflix" rel="noreferrer" target="_blank">
-          SidiBecker
+          Sidi Becker
+        </a>
+        {' '}
+        durante a
+        {' '}
+        <a href="https://www.alura.com.br/">
+          Imersão React da Alura
         </a>
         .
       </p>

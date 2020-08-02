@@ -24,7 +24,18 @@ function getAll() {
     });
 }
 
+function create(obj) {
+  return fetch(`${CATEGORIAS_URL}`, {
+    method: 'POST',
+    headers: {
+      'Content-type': 'application/json',
+    },
+    body: JSON.stringify(obj),
+  });
+}
+
 export default {
   getAllWithVideos,
   getAll,
+  create,
 };

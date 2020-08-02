@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import PageDefault from '../../../components/PageDefault';
 import FormField from '../../../components/FormField';
 import useForm from '../../../hooks/useForm';
+import CategoriasService from '../../../services/categorias';
 
 function CadastroCategoria() {
   const valoresIniciais = {
@@ -17,18 +18,25 @@ function CadastroCategoria() {
 
   function cadastrarCategoria(e) {
     e.preventDefault();
-    setListaCategorias([...listaCategorias, values]);
-    clearForm();
+    CategoriasService.create({
+      titulo: values.titulo,
+      url: values.url,
+      cor: values.cor,
+    })
+      .then(() => {
+        clearForm();
+        setListaCategorias([...listaCategorias, values]);
+        clearForm();
+      })
+      .catch(() => {
+        alert('Houve um erro ao salvar os dados.');
+      });
   }
 
   useEffect(() => {
     // Método executado após renderizar a tela
-
-    const local = window.location.hostname === 'localhost';
-    const URL = local ? 'http://localhost:8080/categorias' : 'https://coverflix.herokuapp.com/categorias';
-    fetch(URL).then(async (res) => {
-      const data = await res.json();
-      setListaCategorias(data);
+    CategoriasService.getAll().then((listaSalva) => {
+      setListaCategorias(listaSalva);
     });
   }, []);
 

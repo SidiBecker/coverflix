@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import React, { useEffect, useState } from 'react';
 import Menu from '../../components/Menu';
 import BannerMain from '../../components/BannerMain';
@@ -31,10 +32,10 @@ function Home() {
           <BannerMain
             videoTitle={dadosIniciais[0].videos[0].titulo}
             url={dadosIniciais[0].videos[0].url}
-            videoDescription="Fingerstyle é uma técnica de tocar violão/guitarra/baixo, em que se toca apenas com os dedos, sem o uso da palheta. Ele é tocado predominantemente em guitarra acústica com cordas em aço e é caracterizado esteticamente por uma orientação em torno dos blues. Porém, nota-se influências de outras fontes como o jazz, ragtime, country, clássica, celta e pop."
+            videoDescription={dadosIniciais[0].descricao}
           />
 
-          {dadosIniciais.map((categoria, index) => (
+          {dadosIniciais.filter((categoria) => Boolean(categoria.videos.length)).map((categoria, index) => (
             <Carousel
               key={categoria.id}
               ignoreFirstVideo={index === 0}
