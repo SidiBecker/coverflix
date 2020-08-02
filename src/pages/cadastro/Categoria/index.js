@@ -50,7 +50,7 @@ function CadastroCategoria() {
     <>
       <PageDefault>
         <div>
-          <h1>Cadastro de Categoria: </h1>
+          <h1>Cadastro de Categoria</h1>
           <form onSubmit={cadastrarCategoria}>
 
             <FormField type="text" label="Título" value={values.titulo} name="titulo" onChange={onChange} />
