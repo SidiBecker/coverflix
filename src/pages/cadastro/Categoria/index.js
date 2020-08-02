@@ -19,14 +19,14 @@ function CadastroCategoria() {
   function cadastrarCategoria(e) {
     e.preventDefault();
 
-    if (!(values.titulo && values.url && values.categoriaId)) {
+    if (!(values.titulo && values.descricao)) {
       alert('Informe todos os campos!');
       return;
     }
 
     CategoriasService.create({
       titulo: values.titulo,
-      url: values.url,
+      descricao: values.descricao,
       cor: values.cor,
     })
       .then(() => {
