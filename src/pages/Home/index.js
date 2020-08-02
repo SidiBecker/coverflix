@@ -5,6 +5,7 @@ import BannerMain from '../../components/BannerMain';
 import Carousel from '../../components/Carousel';
 import Footer from '../../components/Footer';
 import CategoriasService from '../../services/categorias';
+import LoadingScreen from '../../components/LoadingScreen';
 
 function Home() {
   const [dadosIniciais, setDadosIniciais] = useState([]);
@@ -24,7 +25,7 @@ function Home() {
       <Menu />
 
       {dadosIniciais.length === 0 && (
-        <div style={{ color: '#FFF' }}>Loading...</div>
+        <LoadingScreen />
       )}
 
       {dadosIniciais.length > 0 && (
