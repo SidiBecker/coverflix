@@ -8,11 +8,6 @@
   <a href="#-como-contribuir">Como contribuir</a>
 </p>
 
-<p align="center">
-  <img alt="Tela Inicial" src="./screenshots/1.png" width="100%">
-</p>
-
-
 ###  💻 Projeto
 
 A [Coverflix](https://coverflix.vercel.app) é uma plataforma baseada na Netflix para exibição de covers de vários artistas e estilos musicais.
