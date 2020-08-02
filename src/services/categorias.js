@@ -13,7 +13,7 @@ function getAllWithVideos() {
     });
 }
 
-function getAllVideos() {
+function getAll() {
   return fetch(`${CATEGORIAS_URL}`)
     .then(async (res) => {
       if (res.ok) {
@@ -26,5 +26,5 @@ function getAllVideos() {
 
 export default {
   getAllWithVideos,
-  getAllVideos,
+  getAll,
 };
