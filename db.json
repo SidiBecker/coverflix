@@ -92,12 +92,6 @@
       "id": 5
     },
     {
-      "titulo": "teste",
-      "url": "https://www.youtube.com/watch?v=CZeulkp1ClA",
-      "categoriaId": 1,
-      "id": 6
-    },
-    {
       "titulo": "Can't Stop - Red Hot Chili Peppers",
       "url": "https://www.youtube.com/watch?v=QiPOzkp-IOs",
       "categoriaId": 2,
@@ -150,6 +144,24 @@
       "url": "https://www.youtube.com/watch?v=kl3fERNf6BU",
       "categoriaId": 5,
       "id": 19
+    },
+    {
+      "titulo": "Top Gear on Fingerstyle by Fabio Lima",
+      "url": "https://www.youtube.com/watch?v=SHcVzwTy3yQ",
+      "categoriaId": 1,
+      "id": 20
+    },
+    {
+      "titulo": "Mortal Kombat Theme on Fingerstyle by Fabio Lima",
+      "url": "https://www.youtube.com/watch?v=FBv32RBTh4w",
+      "categoriaId": 5,
+      "id": 21
+    },
+    {
+      "titulo": "Super Mario World no Violão por Fabio Lima GuitarGamer",
+      "url": "https://www.youtube.com/watch?v=z3YQoYgeiwA",
+      "categoriaId": 5,
+      "id": 22
     }
   ]
 }

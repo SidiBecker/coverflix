@@ -29,7 +29,23 @@ a {
 }
 
 #root {
-  min-height: calc(100vh -  var(--bodyPaddingTop));
+  min-height: calc(100vh - var(--bodyPaddingTop));
   display: flex;
   flex-direction: column;
+}
+
+input[type="submit"] {
+  height: 50px;
+  width: 100px;
+  background: black;
+  border: 1px solid white;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+input[type="submit"][disabled] {
+  cursor: default;
+  opacity: 0.3;
 }

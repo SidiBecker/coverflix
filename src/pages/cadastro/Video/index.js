@@ -32,6 +32,11 @@ function CadastroVideo() {
     // eslint-disable-next-line max-len
     const categoriaEscolhida = categorias.find((categoria) => categoria.titulo === values.categoriaId);
 
+    if (!(values.titulo && values.url && values.categoriaId)) {
+      alert('Informe todos os campos!');
+      return;
+    }
+
     if (!categoriaEscolhida) {
       alert('Categoria não encontrada.');
       return;
@@ -62,7 +67,7 @@ function CadastroVideo() {
             <FormField type="text" label="URL" value={values.url} name="url" onChange={onChange} />
             <FormField type="text" label="Categoria" value={values.categoriaId} name="categoriaId" onChange={onChange} options={categorias.map(({ titulo }) => titulo)} />
 
-            <input disabled={!(values.titulo)} type="submit" value="Enviar" />
+            <input disabled={!(values.titulo && values.url && values.categoriaId)} type="submit" value="Enviar" />
 
           </form>
 
