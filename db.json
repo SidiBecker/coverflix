@@ -2,21 +2,35 @@
   "categorias": [
     {
       "id": 1,
-      "nome": "Fingerstyle",
+      "titulo": "Fingerstyle",
       "descricao": "Descrição do fingerstyle",
       "cor": "#00C86F"
     },
     {
       "id": 2,
-      "nome": "Drum Cover",
+      "titulo": "Drum Cover",
       "descricao": "Descrição do drumcover",
       "cor": "#ff00aa"
     },
     {
       "id": 3,
-      "nome": "Queen",
+      "titulo": "Queen",
       "descricao": "Descrição do Queen",
       "cor": "#ff00aa"
+    }
+  ],
+  "videos": [
+    {
+      "id": 1,
+      "categoriaId": 1,
+      "titulo": "A-ha - Take On Me (Alexandr Misko)",
+      "url": "https://www.youtube.com/watch?v=EMxiuq_tMq0"
+    },
+    {
+      "id": 2,
+      "categoriaId": 2,
+      "titulo": "Maroon 5 - Animals | Matt McGuire",
+      "url": "https://www.youtube.com/watch?v=9HSU6iEJYqM"
     }
   ]
 }

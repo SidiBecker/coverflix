@@ -2,36 +2,23 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import PageDefault from '../../../components/PageDefault';
 import FormField from '../../../components/FormField';
+import useForm from '../../../hooks/useForm';
 
 function CadastroCategoria() {
   const valoresIniciais = {
-    nome: '',
+    titulo: '',
     descricao: '',
     cor: '#000',
   };
 
+  const { onChange, categoria, clearForm } = useForm(valoresIniciais);
+
   const [listaCategorias, setListaCategorias] = useState([]);
-  const [categoria, setCategoria] = useState(valoresIniciais);
-
-  function setValue(key, value) {
-    setCategoria({
-      ...categoria,
-      [key]: value,
-    });
-  }
-
-  function onChange(ev) {
-    const { target } = ev;
-    setValue(
-      target.getAttribute('name'),
-      target.value,
-    );
-  }
 
   function cadastrarCategoria(e) {
     e.preventDefault();
     setListaCategorias([...listaCategorias, categoria]);
-    setCategoria(valoresIniciais);
+    clearForm();
   }
 
   useEffect(() => {
@@ -52,13 +39,13 @@ function CadastroCategoria() {
           <h1>Cadastro de Categoria: </h1>
           <form onSubmit={cadastrarCategoria}>
 
-            <FormField type="text" label="Nome" value={categoria.nome} name="nome" onChange={onChange} />
+            <FormField type="text" label="titulo" value={categoria.titulo} name="titulo" onChange={onChange} />
 
             <FormField tag="textarea" label="Descrição" value={categoria.descricao} name="descricao" onChange={onChange} />
 
             <FormField type="color" label="Cor" value={categoria.cor} name="cor" onChange={onChange} />
 
-            <input disabled={!(categoria.nome && categoria.descricao)} type="submit" value="Enviar" />
+            <input disabled={!(categoria.titulo && categoria.descricao)} type="submit" value="Enviar" />
 
           </form>
 
@@ -71,7 +58,7 @@ function CadastroCategoria() {
           <ul>
             {listaCategorias.map((element, index) => (
               <li key={String(`categoria_${index}`)}>
-                <h2>{element.nome}</h2>
+                <h2>{element.titulo}</h2>
               </li>
             ))}
           </ul>
