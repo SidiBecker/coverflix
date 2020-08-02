@@ -51,7 +51,7 @@ function Slider({ children }) {
         initialSlide: 0,
         responsive: [
           {
-            breakpoint: 1900,
+            breakpoint: 1800,
             settings: {
               slidesToShow: 4,
               slidesToScroll: 4,
@@ -84,9 +84,7 @@ function Slider({ children }) {
               slidesToShow: 1,
               slidesToScroll: 1,
               infinite: false,
-              centerMode: true,
-              centerPadding: '25px',
-              dots: true,
+              dots: false,
             },
           },
         ],
