@@ -33,7 +33,9 @@ As seguintes features estão/vão estar inclusas no projeto:
 - [ ] Exibição interna do vídeo
 - [ ] Ferramenta de busca
 
-![alt text](https://github.com/SidiBecker/coverflix/blob/master/screenshots/1.gif?raw=true "Cadastro de Categorias")
+<p align="center">
+  <img alt="Demonstração" src="./screenshots/1.gif" width="100%">
+</p>
 
 ## 🤔 Como contribuir
 
