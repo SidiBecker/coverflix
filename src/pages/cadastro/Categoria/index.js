@@ -11,13 +11,13 @@ function CadastroCategoria() {
     cor: '#000',
   };
 
-  const { onChange, categoria, clearForm } = useForm(valoresIniciais);
+  const { onChange, values, clearForm } = useForm(valoresIniciais);
 
   const [listaCategorias, setListaCategorias] = useState([]);
 
   function cadastrarCategoria(e) {
     e.preventDefault();
-    setListaCategorias([...listaCategorias, categoria]);
+    setListaCategorias([...listaCategorias, values]);
     clearForm();
   }
 
@@ -39,13 +39,13 @@ function CadastroCategoria() {
           <h1>Cadastro de Categoria: </h1>
           <form onSubmit={cadastrarCategoria}>
 
-            <FormField type="text" label="titulo" value={categoria.titulo} name="titulo" onChange={onChange} />
+            <FormField type="text" label="Título" value={values.titulo} name="titulo" onChange={onChange} />
 
-            <FormField tag="textarea" label="Descrição" value={categoria.descricao} name="descricao" onChange={onChange} />
+            <FormField tag="textarea" label="Descrição" value={values.descricao} name="descricao" onChange={onChange} />
 
-            <FormField type="color" label="Cor" value={categoria.cor} name="cor" onChange={onChange} />
+            <FormField type="color" label="Cor" value={values.cor} name="cor" onChange={onChange} />
 
-            <input disabled={!(categoria.titulo && categoria.descricao)} type="submit" value="Enviar" />
+            <input disabled={!(values.titulo && values.descricao)} type="submit" value="Enviar" />
 
           </form>
 

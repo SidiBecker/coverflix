@@ -11,7 +11,6 @@ function Home() {
   useEffect(() => {
     CategoriasService.getAllWithVideos()
       .then((categoriasVideos) => {
-        console.log(categoriasVideos);
         setDadosIniciais(categoriasVideos);
       })
       .catch((err) => {

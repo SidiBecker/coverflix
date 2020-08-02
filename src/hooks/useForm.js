@@ -1,11 +1,11 @@
 import { useState } from 'react';
 
 function useForm(valoresIniciais) {
-  const [categoria, setCategoria] = useState(valoresIniciais);
+  const [values, setValues] = useState(valoresIniciais);
 
   function setValue(key, value) {
-    setCategoria({
-      ...categoria,
+    setValues({
+      ...values,
       [key]: value,
     });
   }
@@ -19,11 +19,11 @@ function useForm(valoresIniciais) {
   }
 
   function clearForm() {
-    setCategoria(valoresIniciais);
+    setValues(valoresIniciais);
   }
 
   return {
-    categoria,
+    values,
     onChange,
     clearForm,
   };
