@@ -49,3 +49,7 @@ input[type="submit"][disabled] {
   cursor: default;
   opacity: 0.3;
 }
+
+.btnEdit{
+  background-image: url('assets/img/edit.png');
+}

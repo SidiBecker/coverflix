@@ -37,12 +37,6 @@
     {
       "id": 1,
       "categoriaId": 1,
-      "titulo": "A-ha - Take On Me (Alexandr Misko)",
-      "url": "https://www.youtube.com/watch?v=EMxiuq_tMq0"
-    },
-    {
-      "id": 1,
-      "categoriaId": 1,
       "titulo": "In The End - Linkin Park - (Ambient Version) - Harp Guitar Cover - Jamie Dupuis",
       "url": "https://www.youtube.com/watch?v=zyNM20QARgU"
     },
@@ -75,9 +69,6 @@
       "categoriaId": 2,
       "titulo": "Maroon 5 - Animals | Matt McGuire",
       "url": "https://www.youtube.com/watch?v=9HSU6iEJYqM"
-    },
-    {
-      "id": 3
     },
     {
       "titulo": "teste",
