@@ -24,7 +24,8 @@ function create(video) {
 }
 
 function remove(id) {
-  axios.delete(`${config.URL_BACKEND}/videos/${id}`).then((suc) => {
+  console.log(`${VIDEOS_URL}/${id}`);
+  return axios.delete(`${VIDEOS_URL}/${id}`).then((suc) => {
     console.log(suc);
   }).catch((err) => {
     console.err(err);
@@ -41,9 +42,20 @@ function getAllWithCategoria() {
   });
 }
 
+function getFromId(id) {
+  return fetch(`${VIDEOS_URL}?id=${id}&_expand=categoria`).then(async (res) => {
+    if (res.ok) {
+      const data = await res.json();
+      return data[0];
+    }
+    throw new Error('Não foi possível adquirir os dados.');
+  });
+}
+
 export default {
   getAll,
   create,
   remove,
   getAllWithCategoria,
+  getFromId,
 };

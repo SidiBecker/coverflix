@@ -26,6 +26,7 @@ function useForm(valoresIniciais) {
     values,
     onChange,
     clearForm,
+    setValues,
   };
 }
 

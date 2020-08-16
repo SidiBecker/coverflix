@@ -1,30 +1,46 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import PageDefault from '../../../components/PageDefault';
 import useForm from '../../../hooks/useForm';
 import FormField from '../../../components/FormField';
 import VideosService from '../../../services/videos';
 import CategoriasService from '../../../services/categorias';
 
-function CadastroVideo() {
+function CadastroVideo(props) {
   const history = useHistory();
   const [categorias, setCategorias] = useState([]);
-
-  useEffect(() => {
-    CategoriasService.getAll().then((data) => {
-      setCategorias(data);
-    }).catch((err) => {
-      alert(err);
-    });
-  }, []);
 
   const initValues = {
     titulo: '',
     url: '',
     categoriaId: '',
   };
+  const {
+    onChange, values, clearForm, setValues,
+  } = useForm(initValues);
 
-  const { onChange, values, clearForm } = useForm(initValues);
+  useEffect(() => {
+    const paramId = props.match.params.id;
+
+    if (paramId != null) {
+      VideosService.getFromId(paramId).then((video) => {
+        setValues({
+          titulo: video.titulo,
+          url: video.url,
+          categoriaId: video.categoria.titulo,
+        });
+      });
+    } else {
+      clearForm();
+    }
+
+    CategoriasService.getAll().then((data) => {
+      setCategorias(data);
+    }).catch((err) => {
+      alert(err);
+    });
+  }, []);
 
   function cadastrarVideo(e) {
     e.preventDefault();
@@ -77,5 +93,17 @@ function CadastroVideo() {
     </>
   );
 }
+
+CadastroVideo.defaultProps = {
+  match: undefined,
+};
+
+CadastroVideo.propTypes = {
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      id: PropTypes.string,
+    }),
+  }),
+};
 
 export default CadastroVideo;

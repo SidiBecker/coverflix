@@ -22,6 +22,7 @@ ReactDOM.render(
       <Route path="/home" component={Home} exact />
       <Route path="/slider" component={SimpleSlider} exact />
       <Route path="/cadastro/video" component={CadastroVideo} exact />
+      <Route path="/cadastro/video/:id" component={CadastroVideo} exact />
       <Route path="/cadastro/categoria" component={CadastroCategoria} exact />
       <Route path="/lista/video" component={ListaVideo} exact />
       <Route component={Pagina404} />

@@ -1,6 +1,7 @@
 /* eslint-disable max-len */
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 import PageDefault from '../../../components/PageDefault';
 import VideoService from '../../../services/videos';
 import YoutubeService from '../../../services/youtube';
@@ -9,6 +10,7 @@ import editImg from '../../../assets/img/edit.png';
 import deleteImg from '../../../assets/img/delete.png';
 
 const Table = styled.table`
+
 width: 100%;
 
 & tbody tr {
@@ -20,13 +22,22 @@ width: 100%;
 
   &:nth-child(2n) {
     background: var(--black);
-    
+
       button {
         background:var(--black);
       }
   }
 }
 `;
+
+function deleteVideo(id) {
+  console.log(`sim${id}`);
+
+  VideoService.remove(id).then(() => {
+    alert('Vídeo excluido!');
+    // TODO: refresh data
+  });
+}
 
 function ListaVideo() {
   const [videos, setVideos] = useState([]);
@@ -80,13 +91,16 @@ function ListaVideo() {
                 </th>
                 <th>
                   {/* TODO: Componente botao ação */}
-                  <ActionButton className="action-button" type="button">
-                    <img src={editImg} height={40} alt="" />
+                  <ActionButton title="Editar" className="action-button" type="button">
+                    <Link to={`/cadastro/video/${element.id}`}>
+                      {' '}
+                      <img src={editImg} height={40} alt="Editar Vídeo" />
+                    </Link>
                   </ActionButton>
                 </th>
                 <th>
-                  <ActionButton className="action-button" type="button">
-                    <img src={deleteImg} height={40} alt="" />
+                  <ActionButton onClick={() => { if (window.confirm('Deseja mesmo excluir o vídeo?')) deleteVideo(element.id); }} title="Excluir" className="action-button" type="button">
+                    <img src={deleteImg} height={40} alt="Excluir Vídeo" />
                   </ActionButton>
                 </th>
               </tr>
