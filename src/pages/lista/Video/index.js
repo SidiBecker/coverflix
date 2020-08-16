@@ -1,4 +1,6 @@
+/* eslint-disable max-len */
 import React, { useState, useEffect } from 'react';
+import styled from 'styled-components';
 import PageDefault from '../../../components/PageDefault';
 import VideoService from '../../../services/videos';
 import YoutubeService from '../../../services/youtube';
@@ -6,12 +8,32 @@ import ActionButton from './styles';
 import editImg from '../../../assets/img/edit.png';
 import deleteImg from '../../../assets/img/delete.png';
 
+const Table = styled.table`
+width: 100%;
+
+& tbody tr {
+  background:gray;
+
+  button {
+    background:gray;
+  }
+
+  &:nth-child(2n) {
+    background: var(--black);
+    
+      button {
+        background:var(--black);
+      }
+  }
+}
+`;
+
 function ListaVideo() {
   const [videos, setVideos] = useState([]);
 
   useEffect(() => {
     // Método executado após renderizar a tela
-    VideoService.getAll().then((data) => {
+    VideoService.getAllWithCategoria().then((data) => {
       let dados = data;
       dados = dados.filter((x) => x.titulo != null);
 
@@ -34,13 +56,7 @@ function ListaVideo() {
       <div>
         <h1>Lista de Vídeos</h1>
 
-        {/* {videos.length === 0 && (
-            <div>
-              Carregando...
-            </div>
-            )} */}
-
-        <table>
+        <Table>
           <thead>
             <tr>
               <th>Cógido</th>
@@ -52,12 +68,13 @@ function ListaVideo() {
             </tr>
           </thead>
           <tbody>
-
             {videos.filter((x) => x.titulo != null).map((element, index) => (
               <tr key={String(`video_${index}`)}>
                 <th>{element.id}</th>
                 <th>{element.titulo}</th>
-                <th>{element.categoriaId}</th>
+                <th>
+                  {element.categoria.titulo}
+                </th>
                 <th>
                   <img height={70} src={YoutubeService.getImgFromUrl(element.url)} alt="video" />
                 </th>
@@ -76,7 +93,7 @@ function ListaVideo() {
             ))}
 
           </tbody>
-        </table>
+        </Table>
       </div>
       {/* Tabela com os video cadastrados */}
     </PageDefault>

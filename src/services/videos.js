@@ -31,8 +31,19 @@ function remove(id) {
   });
 }
 
+function getAllWithCategoria() {
+  return fetch(`${VIDEOS_URL}?_expand=categoria`).then(async (res) => {
+    if (res.ok) {
+      const data = await res.json();
+      return data;
+    }
+    throw new Error('Não foi possível adquirir os dados.');
+  });
+}
+
 export default {
   getAll,
   create,
   remove,
+  getAllWithCategoria,
 };
