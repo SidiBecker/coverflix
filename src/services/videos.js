@@ -52,10 +52,21 @@ function getFromId(id) {
   });
 }
 
+function update(video) {
+  return fetch(`${VIDEOS_URL}/${video.id}`, {
+    method: 'PUT',
+    headers: {
+      'Content-type': 'application/json',
+    },
+    body: JSON.stringify(video),
+  });
+}
+
 export default {
   getAll,
   create,
   remove,
   getAllWithCategoria,
   getFromId,
+  update,
 };

@@ -1,18 +1,22 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import PageDefault from '../../../components/PageDefault';
 import FormField from '../../../components/FormField';
 import useForm from '../../../hooks/useForm';
 import CategoriasService from '../../../services/categorias';
 
-function CadastroCategoria() {
+function CadastroCategoria(props) {
+  const history = useHistory();
   const valoresIniciais = {
     titulo: '',
     descricao: '',
     cor: '#000',
   };
 
-  const { onChange, values, clearForm } = useForm(valoresIniciais);
+  const {
+    onChange, values, clearForm, setValues,
+  } = useForm(valoresIniciais);
 
   const [listaCategorias, setListaCategorias] = useState([]);
 
@@ -24,15 +28,24 @@ function CadastroCategoria() {
       return;
     }
 
-    CategoriasService.create({
+    const obj = {
       titulo: values.titulo,
       descricao: values.descricao,
       cor: values.cor,
-    })
+    };
+
+    let method = CategoriasService.create;
+
+    const paramId = props.match.params.id;
+
+    if (paramId != null) {
+      method = CategoriasService.update;
+      obj.id = parseInt(paramId, 0);
+    }
+
+    method(obj)
       .then(() => {
-        clearForm();
-        setListaCategorias([...listaCategorias, values]);
-        clearForm();
+        history.push('/lista/categoria');
       })
       .catch(() => {
         alert('Houve um erro ao salvar os dados.');
@@ -40,15 +53,40 @@ function CadastroCategoria() {
   }
 
   useEffect(() => {
+    const paramId = props.match.params.id;
+
+    if (paramId != null) {
+      CategoriasService.getFromId(paramId).then((categoria) => {
+        setValues({
+          titulo: categoria.titulo,
+          descricao: categoria.descricao,
+          cor: categoria.cor,
+        });
+      });
+    } else {
+      clearForm();
+    }
+
     // Método executado após renderizar a tela
     CategoriasService.getAll().then((listaSalva) => {
       setListaCategorias(listaSalva);
     });
   }, []);
 
+  const buttons = [
+    {
+      link: '/lista/video',
+      label: 'Vídeos',
+    },
+    {
+      link: '/lista/categoria',
+      label: 'Categorias',
+    },
+  ];
+
   return (
     <>
-      <PageDefault>
+      <PageDefault buttons={buttons}>
         <div>
           <h1>Cadastro de Categoria</h1>
           <form onSubmit={cadastrarCategoria}>
@@ -82,5 +120,17 @@ function CadastroCategoria() {
     </>
   );
 }
+
+CadastroCategoria.defaultProps = {
+  match: undefined,
+};
+
+CadastroCategoria.propTypes = {
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      id: PropTypes.string,
+    }),
+  }),
+};
 
 export default CadastroCategoria;

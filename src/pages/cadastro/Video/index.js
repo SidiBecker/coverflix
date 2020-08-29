@@ -57,23 +57,46 @@ function CadastroVideo(props) {
       alert('Categoria não encontrada.');
       return;
     }
-    VideosService.create({
+
+    const obj = {
       titulo: values.titulo,
       url: values.url,
       categoriaId: categoriaEscolhida.id,
-    })
+    };
+
+    let method = VideosService.create;
+
+    const paramId = props.match.params.id;
+
+    if (paramId != null) {
+      method = VideosService.update;
+      obj.id = parseInt(paramId, 0);
+    }
+
+    method(obj)
       .then(() => {
         clearForm();
-        history.push('/');
+        history.push('/lista/video');
       })
       .catch(() => {
         alert('Houve um erro ao salvar os dados.');
       });
   }
 
+  const buttons = [
+    {
+      link: '/lista/video',
+      label: 'Vídeos',
+    },
+    {
+      link: '/cadastro/categoria',
+      label: 'Cadastrar Categoria',
+    },
+  ];
+
   return (
     <>
-      <PageDefault>
+      <PageDefault buttons={buttons}>
         <div>
 
           <h1>Cadastro de vídeo</h1>

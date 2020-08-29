@@ -1,12 +1,11 @@
 /* eslint-disable max-len */
 import React, { useEffect, useState } from 'react';
 
-import Menu from '../../components/Menu';
 import BannerMain from '../../components/BannerMain';
 import Carousel from '../../components/Carousel';
-import Footer from '../../components/Footer';
 import CategoriasService from '../../services/categorias';
 import LoadingScreen from '../../components/LoadingScreen';
+import PageDefault from '../../components/PageDefault';
 
 function Home() {
   const [dadosIniciais, setDadosIniciais] = useState([]);
@@ -21,33 +20,41 @@ function Home() {
       });
   }, []);
 
+  const buttons = [
+    {
+      link: '/lista/video',
+      label: 'Painel',
+    },
+  ];
+
   return (
     <div className="App">
-      <Menu />
 
-      {dadosIniciais.length === 0 && (
-        <LoadingScreen />
-      )}
+      <PageDefault buttons={buttons}>
 
-      {dadosIniciais.length > 0 && (
-        <>
-          <BannerMain
-            videoTitle={dadosIniciais[0].videos[0].titulo}
-            url={dadosIniciais[0].videos[0].url}
-            videoDescription={dadosIniciais[0].descricao}
-          />
+        {dadosIniciais.length === 0 && (
+          <LoadingScreen />
+        )}
 
-          {dadosIniciais.filter((categoria) => Boolean(categoria.videos.length)).map((categoria, index) => (
-            <Carousel
-              key={categoria.id}
-              ignoreFirstVideo={index === 0}
-              category={categoria}
+        {dadosIniciais.length > 0 && (
+          <>
+            <BannerMain
+              videoTitle={dadosIniciais[0].videos[0].titulo}
+              url={dadosIniciais[0].videos[0].url}
+              videoDescription={dadosIniciais[0].descricao}
             />
-          ))}
-        </>
-      )}
 
-      <Footer />
+            {dadosIniciais.filter((categoria) => Boolean(categoria.videos.length)).map((categoria, index) => (
+              <Carousel
+                key={categoria.id}
+                ignoreFirstVideo={index === 0}
+                category={categoria}
+              />
+            ))}
+          </>
+        )}
+
+      </PageDefault>
 
     </div>
   );

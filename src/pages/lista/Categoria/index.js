@@ -4,8 +4,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { useToasts } from 'react-toast-notifications';
 import PageDefault from '../../../components/PageDefault';
-import VideoService from '../../../services/videos';
-import YoutubeService from '../../../services/youtube';
+import CategoriaService from '../../../services/categorias';
 import ActionButton from './styles';
 import editImg from '../../../assets/img/edit.png';
 import deleteImg from '../../../assets/img/delete.png';
@@ -31,15 +30,16 @@ width: 100%;
 }
 `;
 
-function ListaVideo() {
+function ListaCategoria() {
   const { addToast } = useToasts();
 
-  const [videos, setVideos] = useState([]);
+  const [categorias, setCategorias] = useState([]);
 
   useEffect(() => {
     // Método executado após renderizar a tela
-    VideoService.getAllWithCategoria().then((data) => {
+    CategoriaService.getAll().then((data) => {
       let dados = data;
+      console.log(dados);
       dados = dados.filter((x) => x.titulo != null);
 
       // TODO: Utilitário
@@ -52,15 +52,15 @@ function ListaVideo() {
         }
         return 0;
       });
-      setVideos(dados);
+      setCategorias(dados);
     });
   }, []);
 
-  function deleteVideo(id) {
-    VideoService.remove(id).then(() => {
-      setVideos(videos.filter((x) => x.id !== id));
+  function deletarCategoria(id) {
+    CategoriaService.remove(id).then(() => {
+      setCategorias(categorias.filter((x) => x.id !== id));
 
-      addToast('Vídeo excluído com sucesso!', {
+      addToast('Categoria excluída com sucesso!', {
         appearance: 'success',
         autoDismiss: true,
       });
@@ -68,18 +68,19 @@ function ListaVideo() {
   }
   const buttons = [
     {
-      link: '/cadastro/video',
-      label: 'Novo Vídeo',
+      link: '/lista/video',
+      label: 'Vídeos',
     },
     {
-      link: '/lista/categoria',
-      label: 'Categorias',
+      link: '/cadastro/categoria',
+      label: 'Nova Categoria',
     },
   ];
 
   return (
     <PageDefault buttons={buttons}>
       <div>
+
         <h1>Lista de Vídeos</h1>
 
         <Table>
@@ -87,34 +88,34 @@ function ListaVideo() {
             <tr>
               <th>Cógido</th>
               <th>Título</th>
-              <th>Categoria</th>
-              <th>Miniatura</th>
+              <th>Descrição</th>
+              <th>Cor</th>
               <th>Editar</th>
               <th>Excluir</th>
             </tr>
           </thead>
           <tbody>
-            {videos.filter((x) => x.titulo != null).map((element, index) => (
+            {categorias.filter((x) => x.titulo != null).map((element, index) => (
               <tr key={String(`video_${index}`)}>
                 <th>{element.id}</th>
                 <th>{element.titulo}</th>
                 <th>
-                  {element.categoria.titulo}
+                  {element.descricao}
                 </th>
                 <th>
-                  <img height={70} src={YoutubeService.getImgFromUrl(element.url)} alt="video" />
+                  <input readOnly type="color" value={element.cor} />
                 </th>
                 <th>
                   {/* TODO: Componente botao ação */}
                   <ActionButton title="Editar" className="action-button" type="button">
-                    <Link to={`/cadastro/video/${element.id}`}>
+                    <Link to={`/cadastro/categoria/${element.id}`}>
                       {' '}
                       <img src={editImg} height={40} alt="Editar Vídeo" />
                     </Link>
                   </ActionButton>
                 </th>
                 <th>
-                  <ActionButton onClick={() => { if (window.confirm('Deseja mesmo excluir o vídeo?')) deleteVideo(element.id); }} title="Excluir" className="action-button" type="button">
+                  <ActionButton onClick={() => { if (window.confirm('Deseja mesmo excluir a categoria?')) deletarCategoria(element.id); }} title="Excluir" className="action-button" type="button">
                     <img src={deleteImg} height={40} alt="Excluir Vídeo" />
                   </ActionButton>
                 </th>
@@ -129,4 +130,4 @@ function ListaVideo() {
   );
 }
 
-export default ListaVideo;
+export default ListaCategoria;

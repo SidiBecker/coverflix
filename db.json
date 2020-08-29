@@ -11,10 +11,10 @@
       }
     },
     {
-      "id": 2,
       "titulo": "Drum Cover",
       "descricao": "Descrição do drumcover",
-      "cor": "#ff00aa"
+      "cor": "#ff00aa",
+      "id": 2
     },
     {
       "titulo": "Bass Cover",
@@ -31,6 +31,18 @@
       "descricao": "Covers do Queen!",
       "cor": "#ff0000",
       "id": 6
+    },
+    {
+      "titulo": "Piano",
+      "descricao": "Covers de Piano",
+      "cor": "#0000ff",
+      "id": 7
+    },
+    {
+      "titulo": "Queen",
+      "descricao": "Covers do Queen! asd",
+      "cor": "#ff0000",
+      "id": 8
     }
   ],
   "videos": [
@@ -65,10 +77,10 @@
       "url": "https://www.youtube.com/watch?v=EAAnlSEVk94"
     },
     {
-      "id": 2,
-      "categoriaId": 2,
       "titulo": "Maroon 5 - Animals | Matt McGuire",
-      "url": "https://www.youtube.com/watch?v=9HSU6iEJYqM"
+      "url": "https://www.youtube.com/watch?v=9HSU6iEJYqM",
+      "categoriaId": 2,
+      "id": 2
     },
     {
       "titulo": "Can't Stop - Red Hot Chili Peppers",
@@ -81,12 +93,6 @@
       "url": "https://www.youtube.com/watch?v=3z7yS5h72ns",
       "categoriaId": 2,
       "id": 12
-    },
-    {
-      "titulo": "Believer - Imagine Dragons",
-      "url": "https://www.youtube.com/watch?v=MR35Bf_LxTA",
-      "categoriaId": 2,
-      "id": 13
     },
     {
       "titulo": "Michael Jackson's Drummer Jonathan Moffett Performs Smooth Criminal",
@@ -147,6 +153,18 @@
       "url": "https://www.youtube.com/watch?v=PPRtvYalZf0",
       "categoriaId": 6,
       "id": 23
+    },
+    {
+      "titulo": "Simpsons Theme - Vinheteiro",
+      "url": "https://www.youtube.com/watch?v=TYr2YJpcudU",
+      "categoriaId": 7,
+      "id": 24
+    },
+    {
+      "titulo": "Queen Medley - Sungha Jung1",
+      "url": "https://www.youtube.com/watch?v=B9f9uQ0OMw0",
+      "categoriaId": 1,
+      "id": 25
     }
   ]
 }
