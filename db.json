@@ -39,18 +39,18 @@
       "id": 7
     },
     {
-      "titulo": "Queen",
-      "descricao": "Covers do Queen! asd",
-      "cor": "#ff0000",
-      "id": 8
+      "titulo": "Rudi",
+      "descricao": "Categoria do Rudi anti zikador",
+      "cor": "#00ff00",
+      "id": 9
     }
   ],
   "videos": [
     {
-      "id": 1,
-      "categoriaId": 1,
       "titulo": "In The End - Linkin Park - (Ambient Version) - Harp Guitar Cover - Jamie Dupuis",
-      "url": "https://www.youtube.com/watch?v=zyNM20QARgU"
+      "url": "https://www.youtube.com/watch?v=zyNM20QARgU",
+      "categoriaId": 9,
+      "id": 1
     },
     {
       "id": 7,
@@ -165,6 +165,18 @@
       "url": "https://www.youtube.com/watch?v=B9f9uQ0OMw0",
       "categoriaId": 1,
       "id": 25
+    },
+    {
+      "titulo": "asdasdasd",
+      "url": "asdasd",
+      "categoriaId": 4,
+      "id": 26
+    },
+    {
+      "titulo": "RUDI ANTI ZIKA",
+      "url": "https://www.youtube.com/watch?v=61fKW-3fnEs",
+      "categoriaId": 9,
+      "id": 27
     }
   ]
 }

@@ -1,13 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { useToasts } from 'react-toast-notifications';
 import PageDefault from '../../../components/PageDefault';
 import FormField from '../../../components/FormField';
 import useForm from '../../../hooks/useForm';
 import CategoriasService from '../../../services/categorias';
+import Util from '../../../util/util';
 
 function CadastroCategoria(props) {
+  const { addToast } = useToasts();
+
   const history = useHistory();
+
   const valoresIniciais = {
     titulo: '',
     descricao: '',
@@ -18,13 +23,11 @@ function CadastroCategoria(props) {
     onChange, values, clearForm, setValues,
   } = useForm(valoresIniciais);
 
-  const [listaCategorias, setListaCategorias] = useState([]);
-
   function cadastrarCategoria(e) {
     e.preventDefault();
 
     if (!(values.titulo && values.descricao)) {
-      alert('Informe todos os campos!');
+      Util.toast(addToast, 'Informe todos os campos!', 'warning');
       return;
     }
 
@@ -45,10 +48,11 @@ function CadastroCategoria(props) {
 
     method(obj)
       .then(() => {
+        Util.toast(addToast, 'Categoria salva com sucesso!', 'success');
         history.push('/lista/categoria');
       })
       .catch(() => {
-        alert('Houve um erro ao salvar os dados.');
+        Util.toast(addToast, 'Houve um erro ao salvar os dados.', 'error');
       });
   }
 
@@ -66,11 +70,6 @@ function CadastroCategoria(props) {
     } else {
       clearForm();
     }
-
-    // Método executado após renderizar a tela
-    CategoriasService.getAll().then((listaSalva) => {
-      setListaCategorias(listaSalva);
-    });
   }, []);
 
   const buttons = [
@@ -101,19 +100,6 @@ function CadastroCategoria(props) {
 
           </form>
 
-          {listaCategorias.length === 0 && (
-            <div>
-              Carregando...
-            </div>
-          )}
-
-          <ul>
-            {listaCategorias.map((element, index) => (
-              <li key={String(`categoria_${index}`)}>
-                <h2>{element.titulo}</h2>
-              </li>
-            ))}
-          </ul>
           <Link to="/">Ir para o início</Link>
         </div>
       </PageDefault>

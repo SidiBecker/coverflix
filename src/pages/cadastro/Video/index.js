@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { useToasts } from 'react-toast-notifications';
 import PageDefault from '../../../components/PageDefault';
 import useForm from '../../../hooks/useForm';
 import FormField from '../../../components/FormField';
 import VideosService from '../../../services/videos';
 import CategoriasService from '../../../services/categorias';
+import util from '../../../util/util';
 
 function CadastroVideo(props) {
+  const { addToast } = useToasts();
   const history = useHistory();
   const [categorias, setCategorias] = useState([]);
 
@@ -37,8 +40,8 @@ function CadastroVideo(props) {
 
     CategoriasService.getAll().then((data) => {
       setCategorias(data);
-    }).catch((err) => {
-      alert(err);
+    }).catch(() => {
+      util.toast(addToast, 'Houve um erro ao adquirir os dados!', 'error');
     });
   }, []);
 
@@ -49,12 +52,12 @@ function CadastroVideo(props) {
     const categoriaEscolhida = categorias.find((categoria) => categoria.titulo === values.categoriaId);
 
     if (!(values.titulo && values.url && values.categoriaId)) {
-      alert('Informe todos os campos!');
+      util.toast(addToast, 'Informe todos os campos!', 'warning');
       return;
     }
 
     if (!categoriaEscolhida) {
-      alert('Categoria não encontrada.');
+      util.toast(addToast, 'Categoria não encontrada.', 'warning');
       return;
     }
 
@@ -75,11 +78,11 @@ function CadastroVideo(props) {
 
     method(obj)
       .then(() => {
-        clearForm();
+        util.toast(addToast, 'Vídeo salvo com sucesso!', 'success');
         history.push('/lista/video');
       })
       .catch(() => {
-        alert('Houve um erro ao salvar os dados.');
+        util.toast(addToast, 'Houve um erro ao salvar os dados!', 'error');
       });
   }
 
@@ -99,7 +102,7 @@ function CadastroVideo(props) {
       <PageDefault buttons={buttons}>
         <div>
 
-          <h1>Cadastro de vídeo</h1>
+          <h1>Cadastro de Vídeo</h1>
 
           <form onSubmit={cadastrarVideo}>
             <FormField type="text" label="Título" value={values.titulo} name="titulo" onChange={onChange} />

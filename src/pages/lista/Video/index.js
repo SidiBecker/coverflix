@@ -9,6 +9,7 @@ import YoutubeService from '../../../services/youtube';
 import ActionButton from './styles';
 import editImg from '../../../assets/img/edit.png';
 import deleteImg from '../../../assets/img/delete.png';
+import Util from '../../../util/util';
 
 const Table = styled.table`
 
@@ -42,17 +43,7 @@ function ListaVideo() {
       let dados = data;
       dados = dados.filter((x) => x.titulo != null);
 
-      // TODO: Utilitário
-      dados = dados.sort((a, b) => {
-        if (a.id > b.id) {
-          return 1;
-        }
-        if (a.id < b.id) {
-          return -1;
-        }
-        return 0;
-      });
-      setVideos(dados);
+      setVideos(Util.sort(dados));
     });
   }, []);
 
@@ -68,12 +59,12 @@ function ListaVideo() {
   }
   const buttons = [
     {
-      link: '/cadastro/video',
-      label: 'Novo Vídeo',
-    },
-    {
       link: '/lista/categoria',
       label: 'Categorias',
+    },
+    {
+      link: '/cadastro/video',
+      label: 'Novo Vídeo',
     },
   ];
 

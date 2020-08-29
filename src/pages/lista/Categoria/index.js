@@ -8,6 +8,7 @@ import CategoriaService from '../../../services/categorias';
 import ActionButton from './styles';
 import editImg from '../../../assets/img/edit.png';
 import deleteImg from '../../../assets/img/delete.png';
+import Util from '../../../util/util';
 
 const Table = styled.table`
 
@@ -39,20 +40,9 @@ function ListaCategoria() {
     // Método executado após renderizar a tela
     CategoriaService.getAll().then((data) => {
       let dados = data;
-      console.log(dados);
       dados = dados.filter((x) => x.titulo != null);
 
-      // TODO: Utilitário
-      dados = dados.sort((a, b) => {
-        if (a.id > b.id) {
-          return 1;
-        }
-        if (a.id < b.id) {
-          return -1;
-        }
-        return 0;
-      });
-      setCategorias(dados);
+      setCategorias(Util.sort(dados));
     });
   }, []);
 
@@ -81,7 +71,7 @@ function ListaCategoria() {
     <PageDefault buttons={buttons}>
       <div>
 
-        <h1>Lista de Vídeos</h1>
+        <h1>Lista de Categorias</h1>
 
         <Table>
           <thead>
