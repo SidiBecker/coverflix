@@ -53,10 +53,10 @@
       "id": 1
     },
     {
-      "id": 7,
-      "categoriaId": 1,
       "titulo": "Queen Medley - Sungha Jung",
-      "url": "https://www.youtube.com/watch?v=B9f9uQ0OMw0"
+      "url": "https://www.youtube.com/watch?v=B9f9uQ0OMw0",
+      "categoriaId": 1,
+      "id": 7
     },
     {
       "id": 8,
@@ -131,12 +131,6 @@
       "id": 19
     },
     {
-      "titulo": "Top Gear on Fingerstyle by Fabio Lima",
-      "url": "https://www.youtube.com/watch?v=SHcVzwTy3yQ",
-      "categoriaId": 1,
-      "id": 20
-    },
-    {
       "titulo": "Mortal Kombat Theme on Fingerstyle by Fabio Lima",
       "url": "https://www.youtube.com/watch?v=FBv32RBTh4w",
       "categoriaId": 5,
@@ -165,12 +159,6 @@
       "url": "https://www.youtube.com/watch?v=B9f9uQ0OMw0",
       "categoriaId": 1,
       "id": 25
-    },
-    {
-      "titulo": "asdasdasd",
-      "url": "asdasd",
-      "categoriaId": 4,
-      "id": 26
     },
     {
       "titulo": "RUDI ANTI ZIKA",

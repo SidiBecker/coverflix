@@ -6,7 +6,7 @@ import { useToasts } from 'react-toast-notifications';
 import PageDefault from '../../../components/PageDefault';
 import VideoService from '../../../services/videos';
 import YoutubeService from '../../../services/youtube';
-import ActionButton from './styles';
+import ActionButton from '../../../components/ActionButton';
 import editImg from '../../../assets/img/edit.png';
 import deleteImg from '../../../assets/img/delete.png';
 import Util from '../../../util/util';
