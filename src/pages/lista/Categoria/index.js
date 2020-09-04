@@ -9,27 +9,7 @@ import ActionButton from './styles';
 import editImg from '../../../assets/img/edit.png';
 import deleteImg from '../../../assets/img/delete.png';
 import Util from '../../../util/util';
-
-const Table = styled.table`
-
-width: 100%;
-
-& tbody tr {
-  background:gray;
-
-  button {
-    background:gray;
-  }
-
-  &:nth-child(2n) {
-    background: var(--black);
-
-      button {
-        background:var(--black);
-      }
-  }
-}
-`;
+import { Table } from '../../../components/Table'
 
 function ListaCategoria() {
   const { addToast } = useToasts();
@@ -47,13 +27,10 @@ function ListaCategoria() {
   }, []);
 
   function deletarCategoria(id) {
-    CategoriaService.remove(id).then(() => {
+    CategoriaService.remove(id, () => {
       setCategorias(categorias.filter((x) => x.id !== id));
 
-      addToast('Categoria excluída com sucesso!', {
-        appearance: 'success',
-        autoDismiss: true,
-      });
+      Util.toast(addToast, 'Categoria excluída com sucesso!', 'success');
     });
   }
   const buttons = [

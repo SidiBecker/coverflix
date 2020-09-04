@@ -1,6 +1,5 @@
 /* eslint-disable max-len */
 import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { useToasts } from 'react-toast-notifications';
 import PageDefault from '../../../components/PageDefault';
@@ -10,27 +9,7 @@ import ActionButton from '../../../components/ActionButton';
 import editImg from '../../../assets/img/edit.png';
 import deleteImg from '../../../assets/img/delete.png';
 import Util from '../../../util/util';
-
-const Table = styled.table`
-
-width: 100%;
-
-& tbody tr {
-  background:gray;
-
-  button {
-    background:gray;
-  }
-
-  &:nth-child(2n) {
-    background: var(--black);
-
-      button {
-        background:var(--black);
-      }
-  }
-}
-`;
+import { Table } from '../../../components/Table'
 
 function ListaVideo() {
   const { addToast } = useToasts();

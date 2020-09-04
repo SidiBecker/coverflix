@@ -9,7 +9,7 @@ import VideosService from '../../../services/videos';
 import CategoriasService from '../../../services/categorias';
 import util from '../../../util/util';
 import Button from '../../../components/Button';
-import { PanelActionButtons, LabelUnderline } from './styles';
+import { PanelActionButtons, LabelUnderline } from '../../../components/PanelActionButtons';
 
 function CadastroVideo(props) {
   const { addToast } = useToasts();
@@ -61,7 +61,7 @@ const {
     e.preventDefault();
 
     if (valid) {
-      // eslint-disable-next-line max-len
+
       const categoriaEscolhida = categorias.find((categoria) => categoria.titulo === values.categoriaId);
 
       if (!(values.titulo && values.url && values.categoriaId)) {

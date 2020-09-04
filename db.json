@@ -13,16 +13,18 @@
     {
       "titulo": "Drum Cover",
       "descricao": "Descrição do drumcover",
-      "cor": "#ff00aa",
+      "cor": "#99ff00",
       "id": 2
     },
     {
       "titulo": "Bass Cover",
+      "descricao": "Covers de baixo/contra baixo ",
       "cor": "#ff7b00",
       "id": 4
     },
     {
       "titulo": "Games",
+      "descricao": "Covers de games",
       "cor": "#00ffee",
       "id": 5
     },
@@ -37,19 +39,13 @@
       "descricao": "Covers de Piano",
       "cor": "#0000ff",
       "id": 7
-    },
-    {
-      "titulo": "Rudi",
-      "descricao": "Categoria do Rudi anti zikador",
-      "cor": "#00ff00",
-      "id": 9
     }
   ],
   "videos": [
     {
       "titulo": "In The End - Linkin Park - (Ambient Version) - Harp Guitar Cover - Jamie Dupuis",
       "url": "https://www.youtube.com/watch?v=zyNM20QARgU",
-      "categoriaId": 9,
+      "categoriaId": 1,
       "id": 1
     },
     {
@@ -159,12 +155,6 @@
       "url": "https://www.youtube.com/watch?v=B9f9uQ0OMw0",
       "categoriaId": 1,
       "id": 25
-    },
-    {
-      "titulo": "RUDI ANTI ZIKA",
-      "url": "https://www.youtube.com/watch?v=61fKW-3fnEs",
-      "categoriaId": 9,
-      "id": 27
     }
   ]
 }

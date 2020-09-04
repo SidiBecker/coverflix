@@ -45,12 +45,16 @@ function getFromId(id) {
   });
 }
 
-function remove(id) {
-  console.log(`${CATEGORIAS_URL}/${id}`);
-  return axios.delete(`${CATEGORIAS_URL}/${id}`).then((suc) => {
-    console.log(suc);
+function remove(id, callback, callbackError) {
+  
+  return axios.delete(`${CATEGORIAS_URL}/${id}`).then(() => {
+
+    if (callback) callback();
+
   }).catch((err) => {
     console.err(err);
+    if (callbackError) callbackError();
+
   });
 }
 

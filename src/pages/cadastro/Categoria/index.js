@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { useToasts } from 'react-toast-notifications';
 import PageDefault from '../../../components/PageDefault';
@@ -7,6 +7,8 @@ import FormField from '../../../components/FormField';
 import useForm from '../../../hooks/useForm';
 import CategoriasService from '../../../services/categorias';
 import Util from '../../../util/util';
+import Button from '../../../components/Button';
+import { PanelActionButtons, LabelUnderline } from '../../../components/PanelActionButtons';
 
 function CadastroCategoria(props) {
   const { addToast } = useToasts();
@@ -17,11 +19,15 @@ function CadastroCategoria(props) {
     titulo: '',
     descricao: '',
     cor: '#000',
+    id: null,
   };
 
   const {
     onChange, values, clearForm, setValues,
   } = useForm(valoresIniciais);
+
+  const [valid, setValid] = useState(false);
+  const [newRecord, setNewRecord] = useState(false);
 
   function cadastrarCategoria(e) {
     e.preventDefault();
@@ -56,21 +62,36 @@ function CadastroCategoria(props) {
       });
   }
 
+  function deletarCategoria(id) {
+    CategoriasService.remove(id, () => {
+      Util.toast(addToast, 'Categoria excluída com sucesso!', 'success');
+      history.goBack();
+    });
+  }
+
   useEffect(() => {
     const paramId = props.match.params.id;
 
+    setNewRecord(!(paramId));
+
     if (paramId != null) {
       CategoriasService.getFromId(paramId).then((categoria) => {
+        debugger
         setValues({
           titulo: categoria.titulo,
-          descricao: categoria.descricao,
+          descricao: categoria.descricao || '',
           cor: categoria.cor,
+          id: categoria.id,
         });
       });
     } else {
       clearForm();
     }
   }, []);
+
+  useEffect(() => {
+    setValid(values.titulo && values.descricao && values.cor);
+  }, [values.titulo && values.descricao && values.cor]);
 
   const buttons = [
     {
@@ -88,7 +109,7 @@ function CadastroCategoria(props) {
       <PageDefault buttons={buttons}>
         <div>
           <h1>Cadastro de Categoria</h1>
-          <form onSubmit={cadastrarCategoria}>
+          <form>
 
             <FormField type="text" label="Título" value={values.titulo} name="titulo" onChange={onChange} />
 
@@ -96,11 +117,21 @@ function CadastroCategoria(props) {
 
             <FormField type="color" label="Cor" value={values.cor} name="cor" onChange={onChange} />
 
-            <input disabled={!(values.titulo && values.descricao)} type="submit" value="Enviar" />
-
           </form>
 
-          <Link to="/">Ir para o início</Link>
+          <PanelActionButtons className="actions-buttons">
+
+            <Button className="primary" onClick={cadastrarCategoria} disabled={!(valid)}>Enviar</Button>
+
+            <div>
+              <LabelUnderline style={{ marginRight: 10 }} onClick={() => history.goBack()}>Cancelar</LabelUnderline>
+              {
+                !newRecord ? <Button className="delete" onClick={() => { if (window.confirm('Deseja mesmo excluir a categoria?')) deletarCategoria(values.id); }}>Excluir</Button> : null
+              }
+            </div>
+
+          </PanelActionButtons>
+
         </div>
       </PageDefault>
     </>
