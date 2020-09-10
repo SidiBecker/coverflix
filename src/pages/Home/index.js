@@ -6,6 +6,7 @@ import Carousel from '../../components/Carousel';
 import CategoriasService from '../../services/categorias';
 import LoadingScreen from '../../components/LoadingScreen';
 import PageDefault from '../../components/PageDefault';
+import VideoPlayer from '../../components/VideoPlayer';
 
 function Home() {
   const [dadosIniciais, setDadosIniciais] = useState([]);
@@ -27,6 +28,22 @@ function Home() {
     },
   ];
 
+  const video = {
+    url: null,
+    open: false,
+    cagetoriaId: null
+  }
+
+  const [currentVideo, setCurrentVideo] = useState(video);
+
+  function onVideoClick(url, categoria) {
+    setCurrentVideo({
+      url: url,
+      categoriaId: categoria,
+      open: true,
+    })
+  }
+
   return (
     <div className="App">
 
@@ -45,11 +62,19 @@ function Home() {
             />
 
             {dadosIniciais.filter((categoria) => Boolean(categoria.videos.length)).map((categoria, index) => (
-              <Carousel
-                key={categoria.id}
-                ignoreFirstVideo={index === 0}
-                category={categoria}
-              />
+
+              <div key={`categoria_${categoria.id}`}>
+                <Carousel
+                  key={categoria.id}
+                  ignoreFirstVideo={index === 0}
+                  category={categoria}
+                  onVideoClick={onVideoClick}
+                />
+
+                <VideoPlayer categoriaId={categoria.id} currentVideo={currentVideo} onVideoClose={() => setCurrentVideo(video)} />
+
+              </div>
+
             ))}
           </>
         )}

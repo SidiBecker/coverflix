@@ -17,7 +17,6 @@ function ListaVideo() {
   const [videos, setVideos] = useState([]);
 
   useEffect(() => {
-    // Método executado após renderizar a tela
     VideoService.getAllWithCategoria().then((data) => {
       let dados = data;
       dados = dados.filter((x) => x.titulo != null);
@@ -30,10 +29,7 @@ function ListaVideo() {
     VideoService.remove(id).then(() => {
       setVideos(videos.filter((x) => x.id !== id));
 
-      addToast('Vídeo excluído com sucesso!', {
-        appearance: 'success',
-        autoDismiss: true,
-      });
+      Util.toast(addToast, 'Vídeo excluído com sucesso!', 'success');
     });
   }
   const buttons = [
@@ -58,7 +54,7 @@ function ListaVideo() {
               <th>Cógido</th>
               <th>Título</th>
               <th>Categoria</th>
-              <th>Miniatura</th>
+              <th>Vídeo</th>
               <th>Editar</th>
               <th>Excluir</th>
             </tr>
@@ -72,7 +68,9 @@ function ListaVideo() {
                   {element.categoria.titulo}
                 </th>
                 <th>
-                  <img height={70} src={YoutubeService.getImgFromUrl(element.url)} alt="video" />
+                  <a href={element.url} target="_blank">
+                    <img height={70} src={YoutubeService.getImgFromUrl(element.url)} alt="video" />
+                  </a>
                 </th>
                 <th>
                   {/* TODO: Componente botao ação */}

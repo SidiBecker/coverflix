@@ -17,7 +17,16 @@ function toast(addToast, mensagem, tipo, autoDismiss) {
   });
 }
 
+function getYouTubeId(youtubeURL) {
+  return youtubeURL
+    .replace(
+      /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/,
+      '$7',
+    );
+}
+
 export default {
   sort,
   toast,
+  getYouTubeId
 };
