@@ -28,9 +28,9 @@ As seguintes features estão/vão estar inclusas no projeto:
 - [x] Listagem Principal
 - [x] Cadastro de Categoria
 - [x] Cadastro de vídeo
-- [ ] Edição/Exclusão dos cadastros
+- [x] Edição/Exclusão dos cadastros
+- [x] Exibição interna do vídeo
 - [ ] Listagem personalizada
-- [ ] Exibição interna do vídeo
 - [ ] Ferramenta de busca
 
 
