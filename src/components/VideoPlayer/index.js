@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Util from '../../util/util';
 import { Container, CloseButton, ContainerIframe } from './styles';
+import { MdClose } from "react-icons/md";
 
 function VideoPlayer({ categoriaId, currentVideo, onVideoClose }) {
 
@@ -11,10 +12,10 @@ function VideoPlayer({ categoriaId, currentVideo, onVideoClose }) {
         (currentVideo.categoriaId == categoriaId && currentVideo.open) ? (
           <Container>
             <CloseButton>
-              <button title="Fechar" onClick={() => { onVideoClose(); }}>X</button>
+              <button title="Fechar" onClick={() => { onVideoClose(); }}> <MdClose /></button>
             </CloseButton>
             <ContainerIframe>
-              <iframe width={window.innerWidth / 2} height={window.innerHeight / 2} src={`https://www.youtube.com/embed/${Util.getYouTubeId(currentVideo.url)}`} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+              <iframe width={(window.innerHeight / 2) * 1.77} height={window.innerHeight / 2} src={`https://www.youtube.com/embed/${Util.getYouTubeId(currentVideo.url)}`} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
             </ContainerIframe>
 
           </Container>

@@ -13,7 +13,7 @@
   --white: #FFFFFF;
   --frontEnd: #6BD1FF;
   --backEnd: #00C86F;
-
+  --background: #141414;
   --greendark1: #0d201c;
   --greendark2: #074A35;
   --greendark3: #005938;
@@ -31,10 +31,6 @@ body {
 
 a {
   color: inherit;
-}
-
-.App {
-  background-color: #141414;
 }
 
 #root {
@@ -65,4 +61,8 @@ input[type="submit"][disabled] {
 
 table th, table tr {
   padding: 10px
+}
+
+.slick-slide.slick-active div:focus, .slick-slide.slick-active li:focus  {
+  outline: none;
 }

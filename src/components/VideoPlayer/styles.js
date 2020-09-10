@@ -11,6 +11,22 @@ export const Container = styled.div`
 
 export const CloseButton = styled.div`
   align-self: flex-end;
+
+  button {
+    font-size: 30px;
+    border: none;
+    background: var(--background);
+    color: var(--white);
+    padding: 0;
+
+    &:hover{
+      opacity: .8;
+    }
+
+    &:focus{
+      outline: none;
+    }
+  }
 `;
 
 export const ContainerIframe = styled.div`

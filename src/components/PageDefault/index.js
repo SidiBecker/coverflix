@@ -5,12 +5,13 @@ import Footer from '../Footer';
 import Menu from '../Menu';
 
 const Main = styled.main`
-    background-color: var(--black);
+    background-color: var(--background);
     color: var(--white);
     flex: 1;
     padding-top: 50px;
     padding-right: 5%;
     padding-left: 5%;
+    padding-bottom: 1px;
 `;
 
 function PageDefault({ children, buttons }) {
