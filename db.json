@@ -11,18 +11,20 @@
       }
     },
     {
-      "id": 2,
       "titulo": "Drum Cover",
       "descricao": "Descrição do drumcover",
-      "cor": "#ff00aa"
+      "cor": "#99ff00",
+      "id": 2
     },
     {
       "titulo": "Bass Cover",
+      "descricao": "Covers de baixo/contra baixo ",
       "cor": "#ff7b00",
       "id": 4
     },
     {
       "titulo": "Games",
+      "descricao": "Covers de games",
       "cor": "#00ffee",
       "id": 5
     },
@@ -31,26 +33,26 @@
       "descricao": "Covers do Queen!",
       "cor": "#ff0000",
       "id": 6
+    },
+    {
+      "titulo": "Piano",
+      "descricao": "Covers de Piano",
+      "cor": "#0000ff",
+      "id": 7
     }
   ],
   "videos": [
     {
-      "id": 1,
-      "categoriaId": 1,
-      "titulo": "A-ha - Take On Me (Alexandr Misko)",
-      "url": "https://www.youtube.com/watch?v=EMxiuq_tMq0"
-    },
-    {
-      "id": 1,
-      "categoriaId": 1,
       "titulo": "In The End - Linkin Park - (Ambient Version) - Harp Guitar Cover - Jamie Dupuis",
-      "url": "https://www.youtube.com/watch?v=zyNM20QARgU"
+      "url": "https://www.youtube.com/watch?v=zyNM20QARgU",
+      "categoriaId": 1,
+      "id": 1
     },
     {
-      "id": 7,
-      "categoriaId": 1,
       "titulo": "Queen Medley - Sungha Jung",
-      "url": "https://www.youtube.com/watch?v=B9f9uQ0OMw0"
+      "url": "https://www.youtube.com/watch?v=B9f9uQ0OMw0",
+      "categoriaId": 1,
+      "id": 7
     },
     {
       "id": 8,
@@ -71,25 +73,10 @@
       "url": "https://www.youtube.com/watch?v=EAAnlSEVk94"
     },
     {
-      "id": 2,
-      "categoriaId": 2,
       "titulo": "Maroon 5 - Animals | Matt McGuire",
-      "url": "https://www.youtube.com/watch?v=9HSU6iEJYqM"
-    },
-    {
-      "id": 3
-    },
-    {
-      "titulo": "teste",
-      "url": "https://www.youtube.com/watch?v=ZaYvwn9nBD4",
-      "categoriaId": "1",
-      "id": 4
-    },
-    {
-      "titulo": "teste",
-      "url": "https://www.youtube.com/watch?v=CZeulkp1ClA",
-      "categoriaId": "1",
-      "id": 5
+      "url": "https://www.youtube.com/watch?v=9HSU6iEJYqM",
+      "categoriaId": 2,
+      "id": 2
     },
     {
       "titulo": "Can't Stop - Red Hot Chili Peppers",
@@ -102,12 +89,6 @@
       "url": "https://www.youtube.com/watch?v=3z7yS5h72ns",
       "categoriaId": 2,
       "id": 12
-    },
-    {
-      "titulo": "Believer - Imagine Dragons",
-      "url": "https://www.youtube.com/watch?v=MR35Bf_LxTA",
-      "categoriaId": 2,
-      "id": 13
     },
     {
       "titulo": "Michael Jackson's Drummer Jonathan Moffett Performs Smooth Criminal",
@@ -146,12 +127,6 @@
       "id": 19
     },
     {
-      "titulo": "Top Gear on Fingerstyle by Fabio Lima",
-      "url": "https://www.youtube.com/watch?v=SHcVzwTy3yQ",
-      "categoriaId": 1,
-      "id": 20
-    },
-    {
       "titulo": "Mortal Kombat Theme on Fingerstyle by Fabio Lima",
       "url": "https://www.youtube.com/watch?v=FBv32RBTh4w",
       "categoriaId": 5,
@@ -168,6 +143,18 @@
       "url": "https://www.youtube.com/watch?v=PPRtvYalZf0",
       "categoriaId": 6,
       "id": 23
+    },
+    {
+      "titulo": "Simpsons Theme - Vinheteiro",
+      "url": "https://www.youtube.com/watch?v=TYr2YJpcudU",
+      "categoriaId": 7,
+      "id": 24
+    },
+    {
+      "titulo": "Queen Medley - Sungha Jung",
+      "url": "https://www.youtube.com/watch?v=B9f9uQ0OMw0",
+      "categoriaId": 1,
+      "id": 25
     }
   ]
 }

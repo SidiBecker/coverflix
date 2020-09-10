@@ -1,17 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { VideoCardGroupContainer, Title, ExtraLink } from './styles';
 import VideoCard from './components/VideoCard';
 import Slider, { SliderItem } from './components/Slider';
+import Util from '../../util/util';
 
 function Carousel({
   ignoreFirstVideo,
   category,
+  onVideoClick
 }) {
   const categoryTitle = category.titulo;
   const categoryColor = category.cor;
   const categoryExtraLink = category.link_extra;
   const { videos } = category;
+
   return (
     <VideoCardGroupContainer>
       {categoryTitle && (
@@ -39,11 +42,13 @@ function Carousel({
                 videoTitle={video.titulo}
                 videoURL={video.url}
                 categoryColor={categoryColor}
+                onClick={() => { onVideoClick(video.url, video.categoriaId) }}
               />
             </SliderItem>
           );
         })}
       </Slider>
+
     </VideoCardGroupContainer>
   );
 }
@@ -63,6 +68,7 @@ Carousel.propTypes = {
     }),
     videos: PropTypes.arrayOf(PropTypes.object),
   }).isRequired,
+  onVideoClick: PropTypes.func.isRequired
 };
 
 export default Carousel;

@@ -5,18 +5,19 @@ import Footer from '../Footer';
 import Menu from '../Menu';
 
 const Main = styled.main`
-    background-color: var(--black);
+    background-color: var(--background);
     color: var(--white);
     flex: 1;
     padding-top: 50px;
     padding-right: 5%;
     padding-left: 5%;
+    padding-bottom: 1px;
 `;
 
-function PageDefault({ children }) {
+function PageDefault({ children, buttons }) {
   return (
     <>
-      <Menu />
+      <Menu buttons={buttons} />
       <Main>
         {children}
       </Main>
@@ -30,6 +31,7 @@ PageDefault.propTypes = {
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,
   ]).isRequired,
+  buttons: PropTypes.arrayOf(PropTypes.shape()).isRequired,
 };
 
 export default PageDefault;

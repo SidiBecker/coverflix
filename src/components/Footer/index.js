@@ -15,12 +15,6 @@ function Footer() {
         <a href="https://github.com/SidiBecker/coverflix" rel="noreferrer" target="_blank">
           Sidi Becker
         </a>
-        {' '}
-        durante a
-        {' '}
-        <a href="https://www.alura.com.br/">
-          Imersão React da Alura
-        </a>
         .
       </p>
     </FooterBase>
