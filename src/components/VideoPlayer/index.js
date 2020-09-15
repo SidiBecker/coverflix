@@ -6,6 +6,18 @@ import { MdClose } from "react-icons/md";
 
 function VideoPlayer({ categoriaId, currentVideo, onVideoClose }) {
 
+  const resolution = () => {
+
+    let height = window.innerHeight;
+    let width = window.innerWidth;
+
+    if (width < height) {
+      return { height: Util.getRelativeHeight(width * 0.9), width: width * 0.9 }
+    }
+
+    return { height: height * 0.6, width: Util.getRelativeWidth(height * 0.6) }
+  };
+
   return (
     <div key={`showvideo_${categoriaId}`}>
       {
@@ -15,7 +27,7 @@ function VideoPlayer({ categoriaId, currentVideo, onVideoClose }) {
               <button title="Fechar" onClick={() => { onVideoClose(); }}> <MdClose /></button>
             </CloseButton>
             <ContainerIframe>
-              <iframe width={(window.innerHeight / 2) * 1.77} height={window.innerHeight / 2} src={`https://www.youtube.com/embed/${Util.getYouTubeId(currentVideo.url)}`} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+              <iframe width={resolution().width} height={resolution().height} src={`https://www.youtube.com/embed/${Util.getYouTubeId(currentVideo.url)}?autoplay=1`} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
             </ContainerIframe>
 
           </Container>
