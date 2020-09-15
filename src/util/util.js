@@ -25,8 +25,22 @@ function getYouTubeId(youtubeURL) {
     );
 }
 
+function getRelativeWidth(height) {
+  var widthRatio = 16;
+  var heightRatio = 9;
+  return ((widthRatio * height) / heightRatio);
+}
+
+function getRelativeHeight(width) {
+  var widthRatio = 16;
+  var heightRatio = 9;
+  return ((width * heightRatio) / widthRatio);
+}
+
 export default {
   sort,
   toast,
-  getYouTubeId
+  getYouTubeId,
+  getRelativeHeight,
+  getRelativeWidth
 };
