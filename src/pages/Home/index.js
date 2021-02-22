@@ -48,11 +48,6 @@ function Home() {
   return (
 
     <div className="App">
-      <Helmet>
-        <meta name="description" content="Some description." />
-        <meta property="og:title" content="MyApp" />
-        <meta property="og:image" content="../../../screenshots/2.png" />
-      </Helmet>
 
       <PageDefault buttons={buttons}>
 
