@@ -15,15 +15,9 @@ import Pagina404 from './pages/404';
 import SimpleSlider from './components/Slider';
 import ListaVideo from './pages/lista/Video';
 import ListaCategoria from './pages/lista/Categoria';
-import MetaTags from 'react-meta-tags';
 
 ReactDOM.render(
   <ToastProvider>
-    <MetaTags>
-      <meta name="description" content="Some description." />
-      <meta property="og:title" content="MyApp" />
-      <meta property="og:image" content="../screenshots/2.png" />
-    </MetaTags>
     <Router>
       <Switch>
         <Route path="/" component={Home} exact />
