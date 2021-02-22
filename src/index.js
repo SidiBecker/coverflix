@@ -17,7 +17,6 @@ import ListaVideo from './pages/lista/Video';
 import ListaCategoria from './pages/lista/Categoria';
 
 ReactDOM.render(
-
   <ToastProvider>
     <Router>
       <Switch>
@@ -34,6 +33,5 @@ ReactDOM.render(
       </Switch>
     </Router>
   </ToastProvider>,
-
   document.getElementById('root'),
 );

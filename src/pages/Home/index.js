@@ -45,6 +45,7 @@ function Home() {
   }
 
   return (
+
     <div className="App">
 
       <PageDefault buttons={buttons}>
@@ -80,8 +81,8 @@ function Home() {
         )}
 
       </PageDefault>
-
     </div>
+
   );
 }
 
