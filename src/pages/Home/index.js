@@ -7,7 +7,6 @@ import CategoriasService from '../../services/categorias';
 import LoadingScreen from '../../components/LoadingScreen';
 import PageDefault from '../../components/PageDefault';
 import VideoPlayer from '../../components/VideoPlayer';
-import { Helmet } from 'react-helmet';
 
 function Home() {
   const [dadosIniciais, setDadosIniciais] = useState([]);
